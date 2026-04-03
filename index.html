@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guasch Labs — Web Design for Local Businesses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #111111;
+      --accent-light: #f5f5f5;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100vh; overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; }
+    a { text-decoration: none; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 68px; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; background: transparent; transition: all 0.3s ease; }
+    nav.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); box-shadow: 0 1px 24px rgba(0,0,0,0.07); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 20px; color: #fff; transition: color 0.3s; }
+    nav.scrolled .nav-logo { color: #111; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; transition: color 0.2s; }
+    nav.scrolled .nav-links a { color: #555; }
+    .nav-links a:hover { color: #111 !important; }
+    .nav-cta { background: #111; color: #fff !important; padding: 9px 20px; border-radius: 10px; font-weight: 700 !important; font-size: 13px !important; transition: opacity 0.2s !important; }
+    nav.scrolled .nav-cta { background: #111; color: #fff !important; }
+    .nav-cta:hover { opacity: 0.8 !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; width: 100%; background: #111; position: relative; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #111 0%, #1a1a2e 50%, #111 100%); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 120px 48px 80px; width: 100%; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; margin-bottom: 32px; }
+    .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; }
+    .hero-pill span { color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 600; }
+    .hero-title { color: #fff; font-family: 'Playfair Display', serif; font-size: clamp(42px, 6vw, 72px); font-weight: 800; line-height: 1.1; letter-spacing: -1px; max-width: 700px; margin-bottom: 24px; }
+    .hero-title span { color: rgba(255,255,255,0.4); }
+    .hero-sub { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.7; max-width: 520px; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+    .btn-white { background: #fff; color: #111; padding: 15px 32px; border-radius: 12px; font-weight: 700; font-size: 15px; transition: opacity 0.2s; }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-ghost-white { color: rgba(255,255,255,0.8); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 14px 28px; font-size: 15px; font-weight: 600; transition: border-color 0.2s; }
+    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.6); }
+    .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-val { color: #fff; font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .stat-label { color: rgba(255,255,255,0.45); font-size: 13px; }
+
+    /* WHAT YOU GET */
+    .services-section { width: 100%; padding: 100px 48px; background: #fafafa; }
+    .section-wrap { max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 16px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 800; color: #111; letter-spacing: -0.5px; margin-bottom: 56px; max-width: 500px; line-height: 1.2; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .service-card { background: #fff; border: 1.5px solid #ebebeb; border-radius: 20px; padding: 36px 32px; transition: all 0.25s; }
+    .service-card:hover { border-color: #111; box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
+    .service-num { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: #ccc; margin-bottom: 20px; }
+    .service-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #111; margin-bottom: 12px; }
+    .service-desc { color: #777; font-size: 14px; line-height: 1.7; }
+
+    /* PRICING */
+    .pricing-section { width: 100%; padding: 100px 48px; background: #fff; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px; }
+    .pricing-card { border: 1.5px solid #ebebeb; border-radius: 20px; padding: 40px 36px; position: relative; transition: all 0.25s; }
+    .pricing-card.featured { background: #111; border-color: #111; }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .pricing-badge { display: inline-block; background: #fff; color: #111; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border-radius: 100px; margin-bottom: 24px; text-transform: uppercase; }
+    .pricing-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; color: #111; margin-bottom: 8px; }
+    .pricing-card.featured .pricing-name { color: #fff; }
+    .pricing-price { font-size: 48px; font-weight: 800; color: #111; line-height: 1; margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+    .pricing-card.featured .pricing-price { color: #fff; }
+    .pricing-period { font-size: 14px; color: #999; margin-bottom: 32px; }
+    .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.5); }
+    .pricing-features { list-style: none; margin-bottom: 36px; }
+    .pricing-features li { display: flex; align-items: center; gap: 10px; color: #555; font-size: 14px; padding: 8px 0; border-bottom: 1px solid #f5f5f5; }
+    .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.08); }
+    .pricing-features li::before { content: '✓'; color: #111; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+    .pricing-card.featured .pricing-features li::before { color: #fff; }
+    .pricing-cta { display: block; text-align: center; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 15px; background: #111; color: #fff; transition: opacity 0.2s; }
+    .pricing-card.featured .pricing-cta { background: #fff; color: #111; }
+    .pricing-cta:hover { opacity: 0.85; }
+
+    /* PORTFOLIO */
+    .portfolio-section { width: 100%; padding: 100px 48px; background: #fafafa; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 56px; }
+    .portfolio-card { background: #fff; border: 1.5px solid #ebebeb; border-radius: 16px; overflow: hidden; transition: all 0.25s; }
+    .portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: #111; }
+    .portfolio-preview { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .portfolio-info { padding: 24px; }
+    .portfolio-niche { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+    .portfolio-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #111; margin-bottom: 12px; }
+    .portfolio-link { font-size: 13px; font-weight: 600; color: #111; display: flex; align-items: center; gap: 6px; }
+    .portfolio-link:hover { opacity: 0.7; }
+
+    /* CONTACT */
+    .contact-section { width: 100%; padding: 100px 48px; background: #111; }
+    .contact-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; flex-wrap: wrap; }
+    .contact-left { flex: 1 1 340px; }
+    .contact-title { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 800; color: #fff; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px; }
+    .contact-sub { color: rgba(255,255,255,0.55); font-size: 16px; line-height: 1.7; margin-bottom: 36px; }
+    .contact-detail { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 14px; }
+    .contact-right { flex: 1 1 380px; }
+    .form-label { display: block; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 8px; }
+    .form-input, .form-textarea { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 13px 16px; color: #fff; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; margin-bottom: 16px; }
+    .form-textarea { resize: none; line-height: 1.6; }
+    .form-input:focus, .form-textarea:focus { border-color: rgba(255,255,255,0.4); }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-submit { width: 100%; background: #fff; color: #111; border: none; border-radius: 12px; padding: 15px; font-weight: 700; font-size: 15px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity 0.2s; margin-top: 4px; }
+    .form-submit:hover { opacity: 0.9; }
+    .form-success { text-align: center; padding: 40px 0; color: #fff; }
+    .form-success .check { font-size: 48px; margin-bottom: 16px; }
+    .form-success h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .form-success p { color: rgba(255,255,255,0.55); font-size: 14px; }
+
+    /* FOOTER */
+    footer { width: 100%; background: #080808; padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 18px; color: #fff; }
+    footer p { color: #444; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 100px 24px 60px; }
+      .services-section, .pricing-section, .portfolio-section, .contact-section { padding: 72px 24px; }
+      footer { padding: 24px; }
+      .hero-stats { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-logo">Guasch Labs</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-pill">
+        <div class="hero-pill-dot"></div>
+        <span>Now Accepting New Clients</span>
+      </div>
+      <h1 class="hero-title">Your Business Deserves to <span>Be Found.</span></h1>
+      <p class="hero-sub">We build professional websites and optimize your Google Business profile so local customers find you first — not your competitors.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-white">Get Started — $197/mo</a>
+        <a href="#portfolio" class="btn-ghost-white">See Our Work</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">24hr</div>
+          <div class="stat-label">Site live within 24 hours</div>
+        </div>
+        <div>
+          <div class="stat-val">$0</div>
+          <div class="stat-label">No setup fee</div>
+        </div>
+        <div>
+          <div class="stat-val">∞</div>
+          <div class="stat-label">No contract, cancel anytime</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section" id="services">
+    <div class="section-wrap">
+      <p class="eyebrow">What We Do</p>
+      <h2 class="section-title">Everything you need to get found online.</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-name">Professional Website</div>
+          <div class="service-desc">A clean, fast, mobile-friendly website built specifically to generate leads for your business. Lead forms, call buttons, services section — everything your customers need to contact you.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-name">Google Business Optimization</div>
+          <div class="service-desc">We set up and optimize your Google Business Profile so you show up when people in your area search for your service. More visibility means more calls.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-name">Review Funnel</div>
+          <div class="service-desc">A custom review page you send to customers after every job. Happy customers go straight to Google to leave a 5-star review — automatically filtering out negative feedback.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <div class="service-name">Ongoing Management</div>
+          <div class="service-desc">We host, maintain, and update your site. Need to change your hours, add a service, or update your photos? Just text us and it's done within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="section-wrap">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Simple, transparent pricing.</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Base</div>
+          <div class="pricing-price">$197</div>
+          <div class="pricing-period">per month · no contract</div>
+          <ul class="pricing-features">
+            <li>Professional website</li>
+            <li>Mobile friendly</li>
+            <li>Lead capture form</li>
+            <li>Hosting included</li>
+            <li>Custom domain</li>
+            <li>Unlimited edits</li>
+            <li>Live within 24 hours</li>
+          </ul>
+          <a href="#contact" class="pricing-cta">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price">$297</div>
+          <div class="pricing-period">per month · no contract</div>
+          <ul class="pricing-features">
+            <li>Everything in Base</li>
+            <li>Google Business setup</li>
+            <li>Local SEO optimization</li>
+            <li>Review funnel page</li>
+            <li>Multi-page website</li>
+            <li>Priority support</li>
+            <li>Monthly performance report</li>
+          </ul>
+          <a href="#contact" class="pricing-cta">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio-section" id="portfolio">
+    <div class="section-wrap">
+      <p class="eyebrow">Portfolio</p>
+      <h2 class="section-title">Built for local businesses like yours.</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-preview" style="background:#0d0d0d;">🚗</div>
+          <div class="portfolio-info">
+            <div class="portfolio-niche">Auto Detailing</div>
+            <div class="portfolio-name">Kyle's Clean Cars LLC</div>
+            <a href="https://kylescleancars.vercel.app" target="_blank" class="portfolio-link">View Site →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-preview" style="background:#0d0d0d;">🔧</div>
+          <div class="portfolio-info">
+            <div class="portfolio-niche">Auto Body</div>
+            <div class="portfolio-name">Well Done Auto Body</div>
+            <a href="https://welldoneautobody.vercel.app" target="_blank" class="portfolio-link">View Site →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-preview" style="background:#E8A020;">🏠</div>
+          <div class="portfolio-info">
+            <div class="portfolio-niche">Service Business Demo</div>
+            <div class="portfolio-name">Service Template</div>
+            <a href="https://service-template-psi.vercel.app" target="_blank" class="portfolio-link">View Demo →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2 class="contact-title">Let's get your business online.</h2>
+        <p class="contact-sub">Fill out the form and I'll get back to you within the hour. No pressure, no commitment — just a quick conversation about your business.</p>
+        <div class="contact-detail">📧 luisguasch@guaschlabs.net</div>
+        <div class="contact-detail">⚡ Live within 24 hours of signing up</div>
+        <div class="contact-detail">🔒 No contract · Cancel anytime</div>
+      </div>
+      <div class="contact-right">
+        <div id="form-container">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" id="f-name" placeholder="John Smith" />
+          <label class="form-label">Business Name</label>
+          <input class="form-input" id="f-biz" placeholder="Smith's Plumbing LLC" />
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" id="f-phone" placeholder="(305) 555-0000" />
+          <label class="form-label">What do you need?</label>
+          <textarea class="form-textarea" id="f-msg" rows="4" placeholder="Tell me about your business and what you're looking for..."></textarea>
+          <button class="form-submit" onclick="submitContact()">Send Message →</button>
+        </div>
+        <div id="form-success" style="display:none;" class="form-success">
+          <div class="check">✓</div>
+          <h3>Message Received!</h3>
+          <p>I'll be in touch within the hour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Guasch Labs</div>
+    <p>© 2025 Guasch Labs LLC · Web Design for Local Businesses</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    async function submitContact() {
+      const name = document.getElementById('f-name').value;
+      const biz = document.getElementById('f-biz').value;
+      const phone = document.getElementById('f-phone').value;
+      const msg = document.getElementById('f-msg').value;
+      if (!name || !phone) return;
+
+      await fetch('https://formspree.io/f/xgoplldq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, business: biz, phone, message: msg })
+      });
+
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
