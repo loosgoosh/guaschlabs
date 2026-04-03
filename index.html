@@ -4,10 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guasch Labs — Web Design for Local Businesses</title>
+  <meta name="description" content="Guasch Labs builds professional websites and optimizes Google Business profiles for local businesses in Florida and beyond. Live in 24 hours. $197/mo, no contract." />
+  <meta property="og:title" content="Guasch Labs — Web Design for Local Businesses" />
+  <meta property="og:description" content="Professional websites and Google SEO for local businesses. Live in 24 hours. $197/mo, no contract." />
+  <meta property="og:url" content="https://guaschlabs.net" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root { --green: #4ade80; --blue: #79b8ff; --comment: #6a737d; --bg: #1e1e1e; --bg2: #252526; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     html, body { width: 100%; min-height: 100vh; overflow-x: hidden; }
     body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; }
     a { text-decoration: none; }
@@ -20,6 +27,12 @@
     .nav-links a:hover { color: #fff; }
     .nav-cta { background: var(--green); color: #111 !important; padding: 9px 20px; border-radius: 8px; font-weight: 700 !important; font-size: 13px !important; transition: opacity 0.2s !important; }
     .nav-cta:hover { opacity: 0.85 !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: rgba(30,30,30,0.98); backdrop-filter: blur(12px); padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.7); font-size: 15px; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mobile-menu a:last-child { border-bottom: none; background: var(--green); color: #111; text-align: center; border-radius: 8px; padding: 12px; margin-top: 4px; }
     .hero { min-height: 100vh; width: 100%; background: var(--bg); position: relative; display: flex; align-items: center; overflow: hidden; }
     .hero-glow { position: absolute; top: -300px; right: -200px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(121,184,255,0.05) 0%, transparent 65%); pointer-events: none; }
     .hero-glow2 { position: absolute; bottom: -200px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(74,222,128,0.04) 0%, transparent 65%); pointer-events: none; }
@@ -125,7 +138,18 @@
     .footer-logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; color: #fff; }
     .footer-logo .lb { color: var(--blue); } .footer-logo .ln { color: var(--green); }
     footer p { color: #333; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
-    @media (max-width: 768px) { nav { padding: 0 24px; } .nav-links { display: none; } .hero-content { padding: 110px 24px 72px; } .services-section, .pricing-section, .portfolio-section, .contact-section, .seo-section { padding: 72px 24px; } footer { padding: 24px; } .hero-stats { gap: 32px; } .seo-inner, .contact-inner { gap: 48px; } }
+    .footer-links a { color: #444; font-size: 12px; font-family: 'JetBrains Mono', monospace; margin-left: 16px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green); }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { padding: 110px 24px 72px; }
+      .services-section, .pricing-section, .portfolio-section, .contact-section, .seo-section { padding: 72px 24px; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+      .hero-stats { gap: 32px; }
+      .seo-inner, .contact-inner { gap: 48px; }
+    }
   </style>
 </head>
 <body>
@@ -138,7 +162,17 @@
       <a href="#portfolio">Portfolio</a>
       <a href="#contact" class="nav-cta">Get Started</a>
     </div>
+    <button class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#seo" onclick="toggleMenu()">SEO</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+    <a href="#contact" onclick="toggleMenu()">Get Started</a>
+  </div>
   <section class="hero">
     <div class="hero-glow"></div>
     <div class="hero-glow2"></div>
@@ -253,10 +287,17 @@
   </section>
   <footer>
     <div class="footer-logo"><span class="lb">{</span> <span class="ln">guasch_labs</span> <span class="lb">}</span></div>
-    <p>// 2025 Guasch Labs LLC · Web Design for Local Businesses</p>
+    <div class="footer-links">
+      <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=placeholder" target="_blank">Privacy Policy</a>
+      <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=placeholder" target="_blank">Terms of Service</a>
+    </div>
+    <p>// 2025 Guasch Labs LLC</p>
   </footer>
   <script>
     window.addEventListener("scroll", () => { document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20); });
+    function toggleMenu() {
+      document.getElementById("mobile-menu").classList.toggle("open");
+    }
     async function submitContact() {
       const name = document.getElementById("f-name").value;
       const biz = document.getElementById("f-biz").value;
