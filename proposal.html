@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local Domination Package — Guasch Labs</title>
-  <meta name="description" content="The complete local domination package from Guasch Labs. Custom website, Google SEO, ads, review funnel, and 6 months management. $7,500 one-time." />
+  <title>Packages — Guasch Labs</title>
+  <meta name="description" content="Premium packages from Guasch Labs. Local Domination, Multi-Location, Full Rebrand, E-Commerce, and Competitor Killer. Starting at $5,000." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FFFF00'/><text y='.85em' font-size='65' font-family='monospace' font-weight='bold' fill='%23000' x='50' text-anchor='middle'>GL</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
@@ -18,7 +18,6 @@
       --bg3: #111111;
       --border: #1f1f1f;
       --gray: #666666;
-      --gray2: #333333;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -26,119 +25,86 @@
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--white); }
     a { text-decoration: none; }
 
-    /* TICKER */
     .ticker-wrap { width: 100%; background: var(--yellow); overflow: hidden; height: 32px; display: flex; align-items: center; position: fixed; top: 0; z-index: 200; }
     .ticker-track { display: flex; animation: ticker 30s linear infinite; white-space: nowrap; }
     .ticker-item { font-family: 'Share Tech Mono', monospace; font-size: 11px; font-weight: 700; color: #000; padding: 0 48px; letter-spacing: 0.15em; text-transform: uppercase; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* NAV */
     nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 100; height: 56px; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(0,0,0,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--yellow); letter-spacing: 0.1em; }
-    .nav-logo .lb { color: var(--yellow); }
-    .nav-logo .ln { color: var(--yellow); }
+    .nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--yellow); }
     .nav-back { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--white); letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
     .nav-back:hover { color: var(--yellow); }
     .nav-cta { background: var(--yellow); color: #000; padding: 8px 20px; font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 0.15em; font-weight: 700; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
 
-    /* HERO */
-    .hero { min-height: 100vh; width: 100%; background: var(--bg); position: relative; display: flex; align-items: center; overflow: hidden; padding-top: 88px; }
+    .hero { min-height: 60vh; width: 100%; background: var(--bg); position: relative; display: flex; align-items: center; overflow: hidden; padding-top: 88px; }
     .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,0,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
     .hero-corner { position: absolute; width: 200px; height: 200px; pointer-events: none; }
     .hero-corner.tl { top: 88px; left: 0; border-top: 1px solid var(--yellow); border-left: 1px solid var(--yellow); opacity: 0.3; }
     .hero-corner.tr { top: 88px; right: 0; border-top: 1px solid var(--yellow); border-right: 1px solid var(--yellow); opacity: 0.3; }
-    .hero-corner.bl { bottom: 0; left: 0; border-bottom: 1px solid var(--yellow); border-left: 1px solid var(--yellow); opacity: 0.3; }
-    .hero-corner.br { bottom: 0; right: 0; border-bottom: 1px solid var(--yellow); border-right: 1px solid var(--yellow); opacity: 0.3; }
     .hero-rec { position: absolute; top: 100px; left: 48px; display: flex; align-items: center; gap: 8px; font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--red); letter-spacing: 0.2em; }
     .hero-rec-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: blink 1s infinite; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     .hero-frame { position: absolute; top: 100px; right: 48px; font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--blue); letter-spacing: 0.2em; }
-    .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 80px 48px 100px; width: 100%; }
+    .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 60px 48px 80px; width: 100%; }
     .hero-eyebrow { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--yellow); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 24px; }
-    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 10vw, 120px); line-height: 0.95; letter-spacing: 0.02em; color: var(--white); margin-bottom: 24px; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 10vw, 120px); line-height: 0.95; color: var(--white); margin-bottom: 20px; }
     .hero-title .hl { color: var(--yellow); }
-    .hero-sub { color: var(--white); font-size: 15px; line-height: 1.8; max-width: 560px; margin-bottom: 44px; }
+    .hero-sub { color: var(--white); font-size: 15px; line-height: 1.8; max-width: 600px; }
 
-    /* INVESTMENT BOX */
-    .invest-box { border: 1.5px solid var(--yellow); padding: 28px 36px; background: var(--bg2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-bottom: 80px; }
-    .invest-price { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: var(--yellow); line-height: 1; }
-    .invest-details { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--white); letter-spacing: 0.15em; line-height: 2; }
-    .invest-details span { color: var(--white); }
-    .invest-cta { background: var(--yellow); color: #000; padding: 16px 36px; font-family: 'Share Tech Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; transition: opacity 0.2s; display: inline-block; }
-    .invest-cta:hover { opacity: 0.85; }
-
-    /* STATS */
-    .hero-stats { display: flex; gap: 56px; flex-wrap: wrap; padding-top: 44px; border-top: 1px solid var(--border); }
-    .stat-val { font-family: 'Bebas Neue', sans-serif; color: var(--yellow); font-size: 48px; line-height: 1; margin-bottom: 4px; }
-    .stat-label { color: var(--white); font-size: 10px; font-family: 'Share Tech Mono', monospace; letter-spacing: 0.2em; text-transform: uppercase; }
-
-    /* SECTIONS */
     .section { width: 100%; padding: 100px 48px; }
     .section-wrap { max-width: 1100px; margin: 0 auto; }
     .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; font-family: 'Share Tech Mono', monospace; }
-    .red-bar { width: 100%; height: 2px; background: var(--red); margin-bottom: 56px; position: relative; }
+    .red-bar { width: 100%; height: 2px; background: var(--red); margin-bottom: 64px; position: relative; }
     .red-bar::after { content: "LIVE"; position: absolute; right: 0; top: -20px; font-family: 'Share Tech Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.3em; }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5vw, 64px); color: var(--white); letter-spacing: 0.02em; margin-bottom: 56px; line-height: 1; }
 
-    /* DELIVERABLES GRID */
-    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); }
-    .deliverable-card { background: var(--bg2); padding: 28px; transition: background 0.2s; }
-    .deliverable-card:hover { background: var(--bg3); }
-    .deliverable-num { font-family: 'Share Tech Mono', monospace; font-size: 9px; color: #000; background: var(--yellow); display: inline-block; padding: 2px 8px; margin-bottom: 14px; font-weight: 700; letter-spacing: 0.1em; }
-    .deliverable-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--white); margin-bottom: 10px; letter-spacing: 0.05em; }
-    .deliverable-desc { color: var(--white); font-size: 13px; line-height: 1.75; }
+    /* PACKAGE CARDS */
+    .packages-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+    .package-card { background: var(--bg2); display: grid; grid-template-columns: 300px 1fr auto; gap: 0; transition: background 0.2s; border-left: 3px solid transparent; }
+    .package-card:hover { background: var(--bg3); border-left-color: var(--yellow); }
+    .package-card.featured { border-left-color: var(--yellow); }
+    .package-left { padding: 40px 36px; border-right: 1px solid var(--border); }
+    .package-tag { font-family: 'Share Tech Mono', monospace; font-size: 9px; color: #000; background: var(--yellow); display: inline-block; padding: 3px 10px; margin-bottom: 16px; letter-spacing: 0.15em; font-weight: 700; }
+    .package-tag.red { background: var(--red); color: var(--white); }
+    .package-tag.blue { background: var(--blue); color: var(--white); }
+    .package-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--white); letter-spacing: 0.03em; line-height: 1; margin-bottom: 12px; }
+    .package-price { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--yellow); line-height: 1; margin-bottom: 4px; }
+    .package-period { font-family: 'Share Tech Mono', monospace; font-size: 9px; color: var(--white); letter-spacing: 0.15em; }
+    .package-mid { padding: 40px 36px; }
+    .package-desc { color: var(--white); font-size: 13px; line-height: 1.8; margin-bottom: 24px; max-width: 500px; }
+    .package-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .package-features li { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--white); letter-spacing: 0.08em; display: flex; gap: 10px; align-items: center; }
+    .package-features li::before { content: "▶"; color: var(--yellow); font-size: 8px; flex-shrink: 0; }
+    .package-right { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; border-left: 1px solid var(--border); min-width: 180px; }
+    .package-cta { background: var(--yellow); color: #000; padding: 14px 28px; font-family: 'Share Tech Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; transition: opacity 0.2s; white-space: nowrap; display: inline-block; text-align: center; }
+    .package-cta:hover { opacity: 0.85; }
+    .package-cta.outline { background: transparent; color: var(--yellow); border: 1px solid var(--yellow); margin-top: 10px; }
+    .package-cta.outline:hover { background: var(--yellow); color: #000; }
 
-    /* WHY SECTION */
-    .why-grid { display: flex; flex-direction: column; gap: 0; }
-    .why-item { display: flex; gap: 24px; align-items: flex-start; padding: 28px 0; border-bottom: 1px solid var(--border); }
-    .why-item:first-child { border-top: 1px solid var(--border); }
-    .why-bar { width: 3px; background: var(--yellow); flex-shrink: 0; min-height: 48px; }
-    .why-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--white); letter-spacing: 0.05em; margin-bottom: 6px; }
-    .why-desc { color: var(--white); font-size: 13px; line-height: 1.75; max-width: 640px; }
-
-    /* PORTFOLIO */
-    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); margin-top: 56px; }
-    .portfolio-card { background: var(--bg2); overflow: hidden; transition: background 0.2s; }
-    .portfolio-card:hover { background: var(--bg3); }
-    .portfolio-preview { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 32px; border-bottom: 1px solid var(--border); }
-    .portfolio-info { padding: 16px 20px; }
-    .portfolio-niche { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; font-family: 'Share Tech Mono', monospace; }
-    .portfolio-name { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--white); margin-bottom: 10px; }
-    .portfolio-link { font-size: 10px; font-weight: 700; color: var(--white); font-family: 'Share Tech Mono', monospace; letter-spacing: 0.1em; transition: color 0.2s; }
-    .portfolio-link:hover { color: var(--yellow); }
-
-    /* NEXT STEPS */
-    .steps-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-    .step-card { background: var(--bg2); padding: 28px 32px; display: flex; gap: 24px; align-items: flex-start; }
-    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--yellow); line-height: 1; flex-shrink: 0; width: 48px; }
-    .step-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--white); letter-spacing: 0.05em; margin-bottom: 6px; }
-    .step-desc { color: var(--white); font-size: 13px; line-height: 1.7; }
-
-    /* CTA SECTION */
+    /* CTA */
     .cta-section { width: 100%; padding: 100px 48px; background: var(--bg2); border-top: 1px solid var(--border); }
     .cta-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 80px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
-    .cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5vw, 72px); color: var(--white); line-height: 1; letter-spacing: 0.02em; }
+    .cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5vw, 72px); color: var(--white); line-height: 1; }
     .cta-title span { color: var(--yellow); }
     .cta-sub { color: var(--white); font-size: 13px; font-family: 'Share Tech Mono', monospace; letter-spacing: 0.1em; margin-top: 12px; line-height: 1.8; }
     .cta-btn { background: var(--yellow); color: #000; padding: 18px 48px; font-family: 'Share Tech Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; transition: opacity 0.2s; display: inline-block; white-space: nowrap; }
     .cta-btn:hover { opacity: 0.85; }
 
-    /* FOOTER */
     footer { width: 100%; background: #000; padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border); }
-    .footer-logo { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--yellow); letter-spacing: 0.1em; }
-    footer p { color: var(--gray2); font-size: 11px; font-family: 'Share Tech Mono', monospace; letter-spacing: 0.1em; }
-    .footer-links a { color: var(--gray2); font-size: 11px; font-family: 'Share Tech Mono', monospace; margin-left: 16px; letter-spacing: 0.1em; transition: color 0.2s; }
+    .footer-logo { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--yellow); }
+    footer p { color: var(--white); font-size: 11px; font-family: 'Share Tech Mono', monospace; letter-spacing: 0.1em; }
+    .footer-links a { color: var(--white); font-size: 11px; font-family: 'Share Tech Mono', monospace; margin-left: 16px; letter-spacing: 0.1em; transition: color 0.2s; }
     .footer-links a:hover { color: var(--yellow); }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .package-card { grid-template-columns: 1fr; }
+      .package-left { border-right: none; border-bottom: 1px solid var(--border); }
+      .package-right { border-left: none; border-top: 1px solid var(--border); align-items: flex-start; }
       nav { padding: 0 24px; }
-      .hero-content { padding: 60px 24px 72px; }
-      .section { padding: 72px 24px; }
+      .hero-content, .section { padding-left: 24px; padding-right: 24px; }
       .cta-section { padding: 72px 24px; }
       footer { padding: 24px; flex-direction: column; align-items: flex-start; }
       .hero-rec, .hero-frame { display: none; }
-      .invest-box { flex-direction: column; }
     }
   </style>
 </head>
@@ -146,17 +112,17 @@
 
   <div class="ticker-wrap">
     <div class="ticker-track">
-      <span class="ticker-item">▶ GUASCH LABS — LOCAL DOMINATION PACKAGE</span>
-      <span class="ticker-item">▶ CUSTOM SITE + SEO + ADS + REVIEWS + 6 MONTHS MANAGEMENT</span>
-      <span class="ticker-item">▶ $7,500 ONE-TIME · LIVE IN 5 DAYS · NO CONTRACT</span>
-      <span class="ticker-item">▶ GUASCH LABS — LOCAL DOMINATION PACKAGE</span>
-      <span class="ticker-item">▶ CUSTOM SITE + SEO + ADS + REVIEWS + 6 MONTHS MANAGEMENT</span>
-      <span class="ticker-item">▶ $7,500 ONE-TIME · LIVE IN 5 DAYS · NO CONTRACT</span>
+      <span class="ticker-item">▶ GUASCH LABS — PREMIUM PACKAGES</span>
+      <span class="ticker-item">▶ LOCAL DOMINATION · MULTI-LOCATION · FULL REBRAND · E-COMMERCE · COMPETITOR KILLER</span>
+      <span class="ticker-item">▶ STARTING AT $5,000 · NO CONTRACT · BUILT IN-HOUSE</span>
+      <span class="ticker-item">▶ GUASCH LABS — PREMIUM PACKAGES</span>
+      <span class="ticker-item">▶ LOCAL DOMINATION · MULTI-LOCATION · FULL REBRAND · E-COMMERCE · COMPETITOR KILLER</span>
+      <span class="ticker-item">▶ STARTING AT $5,000 · NO CONTRACT · BUILT IN-HOUSE</span>
     </div>
   </div>
 
   <nav>
-    <div class="nav-logo"><span class="lb">{</span> <span class="ln">guasch_labs</span> <span class="lb">}</span></div>
+    <div class="nav-logo">{ guasch_labs }</div>
     <div style="display:flex;align-items:center;gap:24px;">
       <a href="https://guaschlabs.net" class="nav-back">← Back to Site</a>
       <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="nav-cta">Book a Call</a>
@@ -167,190 +133,167 @@
     <div class="hero-grid"></div>
     <div class="hero-corner tl"></div>
     <div class="hero-corner tr"></div>
-    <div class="hero-corner bl"></div>
-    <div class="hero-corner br"></div>
-    <div class="hero-rec"><div class="hero-rec-dot"></div> REC &nbsp;·&nbsp; GUASCH_LABS::PREMIUM</div>
+    <div class="hero-rec"><div class="hero-rec-dot"></div> REC &nbsp;·&nbsp; GUASCH_LABS::PACKAGES</div>
     <div class="hero-frame">Frame_00001 &nbsp;·&nbsp; <span style="color:var(--red)">LIVE</span></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">// PREMIUM_PACKAGE</div>
-      <h1 class="hero-title">LOCAL<br /><span class="hl">DOMINATION</span><br />PACKAGE</h1>
-      <p class="hero-sub">Everything you need to own your local market — custom site, Google fully set up, ads running, reviews growing, and 6 months of management. Done in 5 days.</p>
-
-      <div class="invest-box">
-        <div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--yellow);letter-spacing:0.2em;margin-bottom:8px;">// TOTAL_INVESTMENT</div>
-          <div class="invest-price">$7,500</div>
-        </div>
-        <div class="invest-details">
-          <div>// one_time · no_monthly_commitment</div>
-          <div>// <span>50% deposit</span> to start · <span>50% on delivery</span></div>
-          <div>// live_within_5_business_days</div>
-          <div>// rolls into $397/mo Pro after 6 months</div>
-        </div>
-        <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="invest-cta">▶ Book a Call to Start</a>
-      </div>
-
-      <div class="hero-stats">
-        <div><div class="stat-val">8</div><div class="stat-label">// deliverables</div></div>
-        <div><div class="stat-val">5</div><div class="stat-label">// days to live</div></div>
-        <div><div class="stat-val">6</div><div class="stat-label">// months managed</div></div>
-        <div><div class="stat-val">$0</div><div class="stat-label">// monthly after</div></div>
-      </div>
+      <div class="hero-eyebrow">// PREMIUM_PACKAGES</div>
+      <h1 class="hero-title">PICK YOUR<br /><span class="hl">PACKAGE.</span></h1>
+      <p class="hero-sub">Five high-impact packages built for businesses serious about owning their market. No templates, no outsourcing, no fluff. Everything built in-house and live fast.</p>
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
   <section class="section" style="background:var(--bg2);">
     <div class="section-wrap">
-      <div class="eyebrow">// WHAT'S_INCLUDED</div>
+      <div class="eyebrow">// ALL_PACKAGES</div>
       <div class="red-bar"></div>
-      <div class="deliverables-grid">
-        <div class="deliverable-card">
-          <div class="deliverable-num">01</div>
-          <div class="deliverable-name">CUSTOM MULTI-PAGE WEBSITE</div>
-          <div class="deliverable-desc">Fully custom built — not a template. Home, services, about, contact, and any additional pages your business needs. Designed to convert visitors into calls and leads.</div>
+      <div class="packages-list">
+
+        <!-- LOCAL DOMINATION -->
+        <div class="package-card featured">
+          <div class="package-left">
+            <div class="package-tag">MOST POPULAR</div>
+            <div class="package-name">LOCAL DOMINATION</div>
+            <div class="package-price">$7,500</div>
+            <div class="package-period">// one_time · live_in_5_days</div>
+          </div>
+          <div class="package-mid">
+            <p class="package-desc">Everything you need to own your local market. Custom site, Google fully set up, ads running, reviews growing, competitor analysis, and 6 months of management. The complete system.</p>
+            <ul class="package-features">
+              <li>Custom multi-page website</li>
+              <li>Google Business Profile setup & optimization</li>
+              <li>Local SEO foundation</li>
+              <li>Review funnel page</li>
+              <li>Google Ads setup & 3 months management</li>
+              <li>Competitor analysis report</li>
+              <li>6 months full management</li>
+              <li>Priority build — live in 5 days</li>
+            </ul>
+          </div>
+          <div class="package-right">
+            <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="package-cta">▶ Book a Call</a>
+            <a href="mailto:luisguasch@guaschlabs.net" class="package-cta outline">Email Us</a>
+          </div>
         </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">02</div>
-          <div class="deliverable-name">GOOGLE BUSINESS PROFILE</div>
-          <div class="deliverable-desc">Complete setup and optimization. Photos uploaded, services listed, keywords embedded, Q&A populated. Everything needed to rank in the Google Maps pack for your city.</div>
+
+        <!-- MULTI-LOCATION -->
+        <div class="package-card">
+          <div class="package-left">
+            <div class="package-tag red">HIGH TICKET</div>
+            <div class="package-name">MULTI-LOCATION DOMINATION</div>
+            <div class="package-price" style="font-size:36px;">$12,000+</div>
+            <div class="package-period">// one_time · 2-4_locations</div>
+          </div>
+          <div class="package-mid">
+            <p class="package-desc">For businesses with multiple locations or expanding into new markets. Separate Google Business profiles, location-specific landing pages, and local SEO for every city — all under one unified brand.</p>
+            <ul class="package-features">
+              <li>Everything in Local Domination</li>
+              <li>Separate GBP for each location (up to 4)</li>
+              <li>Location-specific landing pages</li>
+              <li>Local SEO for each city</li>
+              <li>Unified brand across all locations</li>
+              <li>Multi-location Google Ads campaigns</li>
+              <li>6 months management for all locations</li>
+            </ul>
+          </div>
+          <div class="package-right">
+            <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="package-cta">▶ Book a Call</a>
+            <a href="mailto:luisguasch@guaschlabs.net" class="package-cta outline">Email Us</a>
+          </div>
         </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">03</div>
-          <div class="deliverable-name">LOCAL SEO FOUNDATION</div>
-          <div class="deliverable-desc">Proper meta tags, schema markup, location pages if you serve multiple cities, Google Search Console connected, sitemap submitted. Google knows exactly who you are and where.</div>
+
+        <!-- FULL REBRAND -->
+        <div class="package-card">
+          <div class="package-left">
+            <div class="package-tag blue">REBRAND</div>
+            <div class="package-name">FULL REBRAND + WEB</div>
+            <div class="package-price" style="font-size:36px;">$5,000+</div>
+            <div class="package-period">// one_time · complete_identity</div>
+          </div>
+          <div class="package-mid">
+            <p class="package-desc">Your business has been around for years but looks like it hasn't. New logo, color scheme, business card design, website — everything cohesive, modern, and built to make you look like the premium option in your market.</p>
+            <ul class="package-features">
+              <li>New logo & brand identity</li>
+              <li>Color scheme & typography system</li>
+              <li>Business card & collateral design</li>
+              <li>Custom multi-page website</li>
+              <li>Google Business Profile redesign</li>
+              <li>Local SEO foundation</li>
+              <li>Brand guidelines document</li>
+            </ul>
+          </div>
+          <div class="package-right">
+            <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="package-cta">▶ Book a Call</a>
+            <a href="mailto:luisguasch@guaschlabs.net" class="package-cta outline">Email Us</a>
+          </div>
         </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">04</div>
-          <div class="deliverable-name">REVIEW FUNNEL PAGE</div>
-          <div class="deliverable-desc">Custom page you send to customers after every job. Happy customers go straight to Google to leave a 5-star review. Filters out negative feedback automatically. Reviews compound over time.</div>
+
+        <!-- E-COMMERCE -->
+        <div class="package-card">
+          <div class="package-left">
+            <div class="package-tag" style="background:var(--white);color:#000;">E-COMMERCE</div>
+            <div class="package-name">E-COMMERCE BUILD</div>
+            <div class="package-price" style="font-size:36px;">$4,000+</div>
+            <div class="package-period">// one_time · sell_online</div>
+          </div>
+          <div class="package-mid">
+            <p class="package-desc">You sell physical products but have no online store. We build it — product catalog, payment processing, local pickup option, and everything needed to start taking orders online within days.</p>
+            <ul class="package-features">
+              <li>Full e-commerce website build</li>
+              <li>Product catalog setup</li>
+              <li>Stripe / payment processing integration</li>
+              <li>Local pickup & delivery options</li>
+              <li>Mobile optimized</li>
+              <li>Inventory management</li>
+              <li>Optional $297/mo maintenance after</li>
+            </ul>
+          </div>
+          <div class="package-right">
+            <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="package-cta">▶ Book a Call</a>
+            <a href="mailto:luisguasch@guaschlabs.net" class="package-cta outline">Email Us</a>
+          </div>
         </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">05</div>
-          <div class="deliverable-name">GOOGLE ADS SETUP</div>
-          <div class="deliverable-desc">Starter campaign targeting your 2-3 best keywords in your service area. Call-only ads so leads call directly. Set up and managed for the first 3 months — included in the package.</div>
+
+        <!-- COMPETITOR KILLER -->
+        <div class="package-card">
+          <div class="package-left">
+            <div class="package-tag red">AGGRESSIVE</div>
+            <div class="package-name">COMPETITOR KILLER</div>
+            <div class="package-price">$10,000</div>
+            <div class="package-period">// one_time · targeted_domination</div>
+          </div>
+          <div class="package-mid">
+            <p class="package-desc">You have one competitor that's beating you and it's driving you insane. We go deep on them — their keywords, backlinks, Google Ads, review strategy — and build a complete system designed specifically to outrank and out-convert that one competitor.</p>
+            <ul class="package-features">
+              <li>Full competitor audit & teardown</li>
+              <li>Keyword gap analysis</li>
+              <li>Custom site built to beat their rankings</li>
+              <li>Google Ads targeting their keywords</li>
+              <li>Review strategy to surpass their rating</li>
+              <li>Monthly ranking reports vs competitor</li>
+              <li>6 months aggressive management</li>
+            </ul>
+          </div>
+          <div class="package-right">
+            <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="package-cta">▶ Book a Call</a>
+            <a href="mailto:luisguasch@guaschlabs.net" class="package-cta outline">Email Us</a>
+          </div>
         </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">06</div>
-          <div class="deliverable-name">COMPETITOR ANALYSIS REPORT</div>
-          <div class="deliverable-desc">A full report showing exactly where you rank vs your top 3 competitors, what keywords they're winning on, and the specific plan to beat them. Delivered before we build anything.</div>
-        </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">07</div>
-          <div class="deliverable-name">6 MONTHS MANAGEMENT</div>
-          <div class="deliverable-desc">Updates, edits, monthly ranking reports, Google Business posts, review monitoring. After 6 months you roll into our $397/mo Pro plan — or you can walk away. No contract.</div>
-        </div>
-        <div class="deliverable-card">
-          <div class="deliverable-num">08</div>
-          <div class="deliverable-name">PRIORITY BUILD TIMELINE</div>
-          <div class="deliverable-desc">Live within 5 business days of deposit. Dedicated build — no queue, no waiting. Most agencies take 6-8 weeks. We move fast because your business can't afford to wait.</div>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- WHY GUASCH LABS -->
-  <section class="section" style="background:var(--bg);">
-    <div class="section-wrap">
-      <div class="eyebrow">// WHY_GUASCH_LABS</div>
-      <h2 class="section-title">WHY US.</h2>
-      <div class="why-grid">
-        <div class="why-item">
-          <div class="why-bar"></div>
-          <div>
-            <div class="why-title">NO OUTSOURCING. EVER.</div>
-            <div class="why-desc">Every site is built in-house. No agency markup, no overseas contractors, no templates handed off to a junior. You get the same team on every call, every edit, every question.</div>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-bar"></div>
-          <div>
-            <div class="why-title">BUILT TO RANK — NOT JUST LOOK GOOD.</div>
-            <div class="why-desc">Most web designers build pretty sites. We build sites Google understands. Speed, structure, keywords, schema markup, mobile optimization — every technical signal that pushes you up in search results.</div>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-bar"></div>
-          <div>
-            <div class="why-title">NO CONTRACT. EVER.</div>
-            <div class="why-desc">We're confident enough in our work that we don't need to trap you. If you're not happy after delivery, you're not locked in. The $7,500 is for the build. The monthly after is optional.</div>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-bar"></div>
-          <div>
-            <div class="why-title">YOU'LL MAKE IT BACK IN 60 DAYS.</div>
-            <div class="why-desc">What's one job worth to you? If Google sends you three extra jobs in the first month, you've already paid for the whole package. Most clients see ROI within 60 days of going live.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section class="section" style="background:var(--bg2);">
-    <div class="section-wrap">
-      <div class="eyebrow">// OUR_WORK</div>
-      <h2 class="section-title">WHAT WE BUILD.</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-card"><div class="portfolio-preview" style="background:#0d0d0d;">🔧</div><div class="portfolio-info"><div class="portfolio-niche">// auto_body</div><div class="portfolio-name">WELL DONE AUTO BODY</div><a href="https://welldoneautobody.vercel.app" target="_blank" class="portfolio-link">View Site →</a></div></div>
-        <div class="portfolio-card"><div class="portfolio-preview" style="background:#0a2a3d;">💧</div><div class="portfolio-info"><div class="portfolio-niche">// industrial_b2b</div><div class="portfolio-name">AQUA MECHANICS CORP.</div><a href="https://aquamechanicspr.com" target="_blank" class="portfolio-link">View Site →</a></div></div>
-        <div class="portfolio-card"><div class="portfolio-preview" style="background:#0f172a;">📊</div><div class="portfolio-info"><div class="portfolio-niche">// saas_fintech</div><div class="portfolio-name">TALENTA — INSURANCE SAAS</div><a href="https://mytalenta.app" target="_blank" class="portfolio-link">View App →</a></div></div>
-        <div class="portfolio-card"><div class="portfolio-preview" style="background:#000;">🎓</div><div class="portfolio-info"><div class="portfolio-niche">// viral_web_app</div><div class="portfolio-name">COURSE OR NOTHING</div><a href="https://www.courseornothing.com" target="_blank" class="portfolio-link">View Site →</a></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEXT STEPS -->
-  <section class="section" style="background:var(--bg);">
-    <div class="section-wrap">
-      <div class="eyebrow">// NEXT_STEPS</div>
-      <h2 class="section-title">HOW IT WORKS.</h2>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <div>
-            <div class="step-title">BOOK A CALL</div>
-            <div class="step-desc">15-30 minutes. We go over your business, your market, and your competitors. We pull up Google live and show you exactly where you stand. No pressure, no pitch deck.</div>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <div>
-            <div class="step-title">DEPOSIT & ONBOARDING</div>
-            <div class="step-desc">50% deposit via Stripe to lock in your build slot. Then a 10-minute onboarding form — your business info, photos, services, and anything else we need. That's it from you.</div>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <div>
-            <div class="step-title">WE BUILD EVERYTHING</div>
-            <div class="step-desc">Custom site, Google Business Profile, SEO foundation, review funnel, Google Ads campaign — all built and live within 5 business days. You get a review link before anything goes live.</div>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">04</div>
-          <div>
-            <div class="step-title">GO LIVE & FINAL PAYMENT</div>
-            <div class="step-desc">Once you approve everything, we flip the switch. Remaining 50% due on delivery. From that point you're live on Google and customers can find you. We handle everything for the next 6 months.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-inner">
       <div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--yellow);letter-spacing:0.3em;margin-bottom:16px;">// READY_TO_DOMINATE</div>
-        <div class="cta-title">LET'S GET<br />YOU <span>FOUND.</span></div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--yellow);letter-spacing:0.3em;margin-bottom:16px;">// NOT_SURE_WHICH_ONE</div>
+        <div class="cta-title">LET'S FIGURE<br />IT OUT <span>TOGETHER.</span></div>
         <div class="cta-sub">
-          // $7,500 one-time &nbsp;·&nbsp; live in 5 days<br />
+          // 15-minute call · no pressure · no pitch deck<br />
           // luisguasch@guaschlabs.net
         </div>
       </div>
-      <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="cta-btn">▶ Book Your Call Now</a>
+      <a href="https://calendly.com/luisguasch-guaschlabs/30min" target="_blank" class="cta-btn">▶ Book a Free Call</a>
     </div>
   </section>
 
